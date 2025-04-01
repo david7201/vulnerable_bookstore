@@ -165,7 +165,7 @@ EMAIL_BACKEND = "utils.brevo_email_backend.BrevoEmailBackend"
 EMAIL_HOST = "smtp-relay.brevo.com"  
 EMAIL_PORT = 587 
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')  
-BREVO_API_KEY = "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"  
+BREVO_API_KEY = "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"  
 EMAIL_USE_TLS = True  
 DEFAULT_FROM_EMAIL = "davidcirlan720@gmail.com"  
 
