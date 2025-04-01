@@ -1,0 +1,32 @@
+version: '3.7'
+services:
+  web:
+    build: .
+    command: python /code/manage.py runserver 0.0.0.0:8000
+    environment:
+      - SECRET_KEY=0%o!-huj0(8u5f-962oe23jmve$$wt_tax+xm63h-r2j3i!tnka
+      - DEBUG=1
+      - BREVO_API_KEY=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  
+      - EMAIL_HOST_USER="prodemtion"
+      - STRIPE_TEST_PUBLISHABLE_KEY=pk_test_51QuXyRRvt4mxETWBJkHo9cdlYmpPaanbYZLWDWWAbOxRSeSvErEevnDkZy3AswkIlmTFPZ59hARwjxREi94pB3eC00IqdzHWmZ
+      - STRIPE_TEST_SECRET_KEY=sk_test_51QuXyRRvt4mxETWBNJPVWIToSkn2Cu48bmSdhyhSHmComNZCFP4TDsJpeQdHruCCGsEDDqEOz21ElzjIxfnJCsmz00f5iUA6DK
+
+
+    volumes:
+      - .:/code
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+  db:
+    image: postgres:11
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+volumes:
+  postgres_data:

