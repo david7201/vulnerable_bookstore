@@ -25,7 +25,7 @@ class BrevoEmailBackend(BaseEmailBackend):
                 "htmlContent": message.body,
             }
 
-            response = requests.post(url, json=payload, headers=headers)
+            response = requests.post(url, json=payload, headers=headers, timeout=5)
             if response.status_code != 201:
                 print(f"Failed to send email: {response.json()}")
 
