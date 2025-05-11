@@ -17,13 +17,14 @@
     <h3>Reviews</h3>
         <ul>
             {% for review in book.reviews.all %}
-                <li>{{ review.review | safe }} ({{ review.author }})</li>
+                <li>{{ review.review | safe }} ({{ review.author }})</li> <!-- xss vuln -->
             {% endfor %}
         </ul>
 </div>
 
 <form method="post" action="{% url 'add_review' book.id %}">
-    {{ form.as_p | safe }}
+    
+    {{ form.as_p | safe }}  
     <button type="submit">Submit Review</button>
 </form>
 

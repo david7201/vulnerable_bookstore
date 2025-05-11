@@ -8,6 +8,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.utils.safestring import mark_safe
 from django.shortcuts import render, get_object_or_404
 import os
+from django.db.models import Q
 class BookListView(LoginRequiredMixin, ListView):
     model = Book
     context_object_name = 'book_list' # use this name in for loops	 
@@ -37,6 +38,8 @@ class SearchResultsListView(ListView):
             results = [dict(zip(columns, row)) for row in cursor.fetchall()]
         
         return results
+    
+    
 
     
     
